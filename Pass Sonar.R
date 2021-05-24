@@ -1,8 +1,11 @@
+extrafont::loadfonts(device = "win")
+# font_import(paths = "C:/Users/HP/AppData/Local/Microsoft/Windows/Fonts")
 library(tidyverse)
 library(ggsoccer)
 library(grid) 
 library(viridis)
 library(cowplot)
+library(Cairo)
 
 df <- read.csv("Chelsea vs Leicester Final.csv")
 
