@@ -144,13 +144,15 @@ if (team.formation==523){
     annotation_custom(grob=outfield.plots[[6]], xmin=forward.line-80, xmax=forward.line+70+radar.size, ymax=8+radar.size, y=8)+ #LAM
     
     annotation_custom(grob=colorbar, xmin=3, xmax=7, ymin=1, ymax=18)+
-    annotate("text", label="lmao", x=6, y=79, hjust=1,vjust=1 ,size=3.75, color=text.color)+
-    annotate("text", label="Mean Pass Distance (Metres)", x=9, y=0.5, hjust=0, size=3, color=text.color)+
-    annotate("text", label='Bar length = normalized pass angle frequency; Bar color = mean pass distance', color=text.color, x=-2, y=79, hjust=1, size=3)+
-    annotate("text", label=paste0('Starting Formation: ', team.formation), color=text.color, x=-2, y=0, hjust=0, size=5, fontface="bold")+
-    annotate("text", label=("PassSonar: Chelsea FC vs Leicester City FC"), color=text.color, x=121.5, y=0, hjust=0.5, size=7, fontface="bold")+
+    annotate("text", label="Made by: @atom2r\nConcept: @etmckinley", x=6, y=79, hjust=1,vjust=1 ,size=3, color=text.color, family = font)+
+    annotate("text", label="Mean Pass Distance (Metres)", x=9, y=0.5, hjust=0, size=3, color=text.color, family = font)+
+    annotate("text", label='Bar length = normalized pass angle frequency; Bar color = mean pass distance', color=text.color, x=-2, y=79, hjust=1, size=3, family = font)+
+    annotate("text", label=paste0('Starting Formation: ', team.formation), color=text.color, x=-2, y=0, hjust=0, size=3, fontface="bold", family = font)+
+    annotate("text", label=paste0(team.select, " PassSonar vs ", opponent.team), color=text.color, x=121.5, y=0, hjust = 0, size=7, fontface="bold", family = font)+
+    annotate("segment", x = 25, xend = 75, y = -5, yend = -5, arrow = arrow(length = unit(0.3, "cm"),
+                                                                          type = "open"), colour = "white") +
     guides(fill = guide_colourbar())
   
 }
 A
-ggsave(A, file=paste0('./', team.select,' PassSonar.png'), width=9.5, height=11.5, bg=background_color)
+ggsave(A, file=paste0('./', team.select,' PassSonar.png'), width=9.5, height=11.5, bg=background_color, device = "png", type = "cairo")
